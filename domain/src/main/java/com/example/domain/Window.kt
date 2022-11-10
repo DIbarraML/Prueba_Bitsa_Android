@@ -1,6 +1,5 @@
 package com.example.domain
 
 class Window(val numWindow: Int) {
-    var stateWindow: StateWindow = StateWindow.C
+    var stateWindow: StateWindow = StateWindow.A
 }
-

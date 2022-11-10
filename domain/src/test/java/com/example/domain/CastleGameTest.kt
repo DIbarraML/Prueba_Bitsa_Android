@@ -129,7 +129,7 @@ class CastleGameTest {
         // When
         val wins = castleGame.getStateAllWindows(windows)
         // Then
-        val result = "Cerrado"
+        val result = "Abierto"
         // Given
         Assert.assertEquals(result, wins[0])
     }
