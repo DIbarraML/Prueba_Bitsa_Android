@@ -1,15 +1,15 @@
-package com.example.domain
+package com.example.prueba_bitsa.domain
 
 class CastleGame {
 
     private val persons: List<Int> = List(NUM_PERSONS) { it + 1 }
-    private val windows: List<Window> = List(NUM_WINDOWS) { Window(it + 1) }
+    val windows: List<Window> = List(NUM_WINDOWS) { Window(it + 1) }
 
     init {
-        actionsWindowsWithPersons(persons, windows)
+        actionsWindowsWithPersons(windows)
     }
 
-    fun actionsWindowsWithPersons(persons: List<Int>, windows: List<Window>) {
+    fun actionsWindowsWithPersons(windows: List<Window>) {
         persons.map { indexPerson ->
             for (numWindow in indexPerson..windows.size step indexPerson) {
                 changeState(numWindow, windows)
@@ -39,7 +39,7 @@ class CastleGame {
         return listPersonsWins
     }
 
-    fun getStateAllWindows(windows: List<Window>): MutableList<String> {
+    fun  getStateAllWindows(windows: List<Window>): List<String> {
         val listStateWindow: MutableList<String> = mutableListOf()
         windows.map {
             listStateWindow.add(it.stateWindow.getState())
@@ -55,6 +55,47 @@ class CastleGame {
             }
         }
         return listPersonsWins
+    }
+
+    fun getCountWindowOpen(): Int {
+        var count = 0
+        windows.map {
+            if (it.stateWindow == StateWindow.A) count++
+        }
+        return count
+    }
+
+    fun getCountWindowClosed(): Int {
+        var count = 0
+        windows.map {
+            if (it.stateWindow == StateWindow.C) count++
+        }
+        return count
+    }
+
+    fun getCountWindowLeft(): Int {
+        var count = 0
+        windows.map {
+            if (it.stateWindow == StateWindow.I) count++
+        }
+        return count
+    }
+
+    fun getCountWindowRight(): Int {
+        var count = 0
+        windows.map {
+            if (it.stateWindow == StateWindow.D) count++
+        }
+        return count
+    }
+
+    fun resetList() {
+        windows.map {
+            it.stateWindow = StateWindow.A
+        }
+        windows.map {
+            println("RESETLIS ->${it.stateWindow.name}")
+        }
     }
 
     companion object {

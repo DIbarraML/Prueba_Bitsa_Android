@@ -14,9 +14,6 @@ import com.example.prueba_bitsa.databinding.FragmentFirstBinding
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -26,15 +23,30 @@ class FirstFragment : Fragment() {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel = (activity as MainActivity).viewModel
+        val adapter = WindowAdapter(viewModel.windowList())
+        binding.recycler.adapter = adapter
+
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+
+        binding.buttonSecond.setOnClickListener {
+            viewModel.resetList()
+            adapter.setList(viewModel.windowList())
+        }
+
+        binding.buttonThird.setOnClickListener {
+            viewModel.runAgain()
+            adapter.setList(viewModel.windowList())
+        }
+
+
     }
 
     override fun onDestroyView() {

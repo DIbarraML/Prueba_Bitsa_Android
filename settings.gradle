@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Prueba_Bitsa"
 include ':app'
-include ':domain'

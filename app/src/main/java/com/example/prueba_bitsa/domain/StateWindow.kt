@@ -1,4 +1,4 @@
-package com.example.domain
+package com.example.prueba_bitsa.domain
 
 enum class StateWindow {
     C,

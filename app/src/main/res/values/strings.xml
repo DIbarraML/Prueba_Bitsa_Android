@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="estado_de_las_ventanas">Estado de las ventanas:</string>
+    <string name="ganadores">Ganadores:</string>
+    <string name="more_wins">Más ganadores</string>
+    <string name="window_open">Ventanas abiertas:</string>
+    <string name="window_closed">Ventanas Cerradas:</string>
+    <string name="window_right">Ventanas Abierta a la Derecha:</string>
+    <string name="window_left">Ventanas Abierta a la Izquierda:</string>
+    <string name="info_del_sorteo">Info del sorteo</string>
+    <string name="resetear_window">Reset window</string>
+    <string name="jugar_nuevamente">Jugar nuevamente</string>
 </resources>
